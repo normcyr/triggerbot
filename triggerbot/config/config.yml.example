@@ -1,0 +1,16 @@
+reddit_url: https://www.reddit.com
+
+bot:
+  user_agent: 'My bot v.0.1 - Contact me for bugs or more info /u/BOTOWNER'
+  client_id: ChangeToClientID
+  client_secret: ChangeToClientSECRET
+
+user:
+  user_name: my_bot
+  password: BOTPASSWORD
+
+subreddit: SUBREDDIT_TO_POST
+
+trigger_words:
+  - '!TriggerWord1'
+  - '!TriggerWord2'
