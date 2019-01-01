@@ -15,7 +15,7 @@ Details are found in `requirements.txt`.
 1. Clone the repository
 
 ```bash
-git clone
+git clone git@github.com:normcyr/triggerbot.git
 ```
 
 2. Create and activage a Python 3 virtual environment
