@@ -5,7 +5,7 @@ import praw
 import yaml
 import logging.config
 import os
-
+from pathlib import Path
 
 def setup_logging(logging_config_file, env_key = 'LOGGING'):
 
@@ -65,7 +65,7 @@ def make_trigger_dict(trigger_text_basepath, config_dict):
         with open(filename, 'r') as f:
 
             trigger_text_dict[trigger_word] = [f.read()]
-            logging.info('Reading the text from {} for the trigger word {}'.format(filename, trigger_word))
+            logging.debug('Reading the text from {} for the trigger word {}'.format(filename, trigger_word))
 
     return(trigger_text_dict)
 
@@ -117,10 +117,11 @@ def post_bot_comment(trigger_text_dict, trigger_word, comment):
 
 def main():
 
-    config_file = 'triggerbot/config/config.yml'
-    logging_config_file = 'triggerbot/config/logging.yml'
-    trigger_text_basepath = 'triggerbot/trigger_text/'
-    
+    basepath = Path(__file__).parent.resolve()
+    config_file = str(Path(basepath / 'config/config.yml'))
+    logging_config_file = str(Path(basepath / 'config/logging.yml'))
+    trigger_text_basepath = str(Path(basepath / 'trigger_text')) + '/'
+
     setup_logging(logging_config_file)
 
     config_dict = read_config(config_file)
